@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defautHref="/cliente"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Serviço</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup" (ngSubmit)="salvar()">
+
+    <ion-item>
+      <ion-label position="stacked">Nome</ion-label>
+      <ion-input type="text" formControlName="nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Valor</ion-label>
+      <input type='text' formControlName="valor" name="valor" class="form-control border-0 shadow-none"
+        mask="separator.2" thousandSeparator="." decimalMarker=",">
+    </ion-item>
+
+
+    <ion-button type="submit" expand="block" color="primary" [disabled]="!formGroup.valid">Salvar</ion-button>
+
+
+
+  </form>
+
+</ion-content>

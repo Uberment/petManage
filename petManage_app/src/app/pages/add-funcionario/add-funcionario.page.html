@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defautHref="/funcionario"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Funcionário</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup" (ngSubmit)="salvar()">
+
+    <ion-item>
+      <ion-label position="stacked">Nome</ion-label>
+      <ion-input type="text" formControlName="nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">CPF</ion-label>
+      <input type="text" formControlName="cpf" name="cpf" class="form-control border-0 shadow-none"
+        mask="000.000.000-00">
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Telefone</ion-label>
+      <input type="text"  formControlName="telefone" name="telefone" class="form-control border-0 shadow-none"
+        mask="(00) 00000-0000">
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Endereço</ion-label>
+      <ion-input type="text" formControlName="endereco"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Senha</ion-label>
+      <ion-input type="password" formControlName="senha"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-toggle formControlName="gerente" color="primary">Gerente</ion-toggle>
+    </ion-item>
+
+      <ion-button type="submit" expand="block" color="primary" [disabled]="!formGroup.valid">Salvar</ion-button>
+  </form>
+</ion-content>

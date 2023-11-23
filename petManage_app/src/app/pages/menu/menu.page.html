@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <img src="assets/WhatsApp Image 2023-09-01 at 08.16.50.jpeg">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let page of appPages" [routerLink]="[page.url]" detail>
+    <ion-icon [name]="page.icon + '-sharp'" slot="start" [color]="page.color"></ion-icon>
+    <ion-label>{{ page.title }}</ion-label>
+  </ion-item>
+
+  <ion-item detail (click)="teste()">
+    <ion-icon name="power-outline" slot="start" color="primary"></ion-icon>
+    <ion-label>Sair</ion-label>
+  </ion-item>
+
+  <ng-template [ngIf]="isGerente">
+    <ion-item>
+      <ion-label>
+        <h1>Gerente</h1>
+      </ion-label>
+    </ion-item>
+
+    <ion-item *ngFor="let page of appGerentePages" [routerLink]="[page.url]" detail>
+      <ion-icon [name]="page.icon + '-sharp'" slot="start" [color]="page.color"></ion-icon>
+      <ion-label>{{ page.title }}</ion-label>
+    </ion-item>
+  </ng-template>
+</ion-content>

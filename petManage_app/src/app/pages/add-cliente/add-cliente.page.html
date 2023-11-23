@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defautHref="/cliente"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cliente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup" (ngSubmit)="salvar()">
+
+    <ion-item>
+      <ion-label position="stacked">Nome</ion-label>
+      <ion-input type="text" formControlName="nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">CPF</ion-label>
+      <input type="text" formControlName="cpf" name="cpf" class="form-control border-0 shadow-none" mask="000.000.000-00">
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Endereço</ion-label>
+      <ion-input type="text" formControlName="endereco"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Telefone</ion-label>
+      <input type="text" formControlName="telefone" name="telefone" class="form-control border-0 shadow-none" mask="(00) 00000-0000">
+    </ion-item>
+
+    <ion-button type="submit" expand="block" color="primary" [disabled]="!formGroup.valid">Salvar</ion-button>
+
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+      <ion-fab-button [disabled]="cliente.idCliente === 0" [routerLink]="['/pet/', cliente.idCliente]" color="primary"
+        color="dark">
+        <ion-icon name="bag-add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </form>
+
+</ion-content>

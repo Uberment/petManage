@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defautHref="/pet"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="formGroup" (ngSubmit)="salvar()">
+
+    <ion-item>
+      <ion-label position="stacked">Nome</ion-label>
+      <ion-input type="text" formControlName="nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select formControlName="sexo" name="sexo" label="Sexo" label-placement="stacked">
+        <ion-select-option value="F">Fêmea</ion-select-option>
+        <ion-select-option value="M">Macho</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Raça</ion-label>
+      <ion-input type="text" formControlName="raca"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Data de nascimento</ion-label>
+      <br>
+      <ion-datetime formControlName="dtNascimento" name="dtNascimento" presentation="date"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Peso</ion-label>
+      <input type='text' formControlName="peso" name="peso" class="form-control border-0 shadow-none" mask="separator.2" thousandSeparator="." decimalMarker=",">
+    </ion-item>
+
+    <ion-button type="submit" expand="block" color="primary" [disabled]="!formGroup.valid">Salvar</ion-button>
+  </form>
+</ion-content>

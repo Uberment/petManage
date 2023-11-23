@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recuperar Senha</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup" (ngSubmit)="recuperarSenha()">
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" expand="block" color="primary" [disabled]="!formGroup.valid">Recuperar senha</ion-button>
+  </form>
+</ion-content>

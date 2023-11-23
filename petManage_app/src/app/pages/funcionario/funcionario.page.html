@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defautHref="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Funcionários</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let funcionario of funcionarios">
+      <ion-item [routerLink]="['/add-funcionario/', funcionario.idFuncionario]" detail>
+        <ion-label>
+          <h2> <ion-icon name="person" [color]="funcionario.gerente ? 'danger' : 'primary'"></ion-icon>
+            {{funcionario.nome}}</h2>
+        </ion-label>
+      </ion-item>
+
+      <ng-template [ngIf]="(funcionario.idFuncionario !== funcionarioAutenticado.idFuncionario)">
+        <ion-item-options side="start">
+          <ion-item-option (click)="excluir(funcionario)" color="danger">DEMITIR</ion-item-option>
+        </ion-item-options>
+      </ng-template>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/add-funcionario" color="primary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
