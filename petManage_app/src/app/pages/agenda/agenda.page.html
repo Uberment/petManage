@@ -24,7 +24,7 @@
     <ion-item-sliding *ngFor="let agenda of agendas">
       <ion-item [routerLink]="['/agendar/', agenda.idPetServico]" detail>
         <ion-label>
-          <h2> <ion-icon name="person"></ion-icon> Agenda {{agenda.idPetServico}}</h2>
+          <h2> <ion-icon name="person"></ion-icon> Cliente {{agenda.cliente.nome}} <ion-icon name="logo-octocat"></ion-icon> Pet: {{agenda.pet.nome}}</h2>
         </ion-label>
       </ion-item>
       <ion-item-options side="start">

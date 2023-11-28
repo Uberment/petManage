@@ -54,9 +54,9 @@ export class AgendaPage implements OnInit {
       }
 
       await this.petServicoService.listarEspecifico(executado, pago)
-      .then((json) => {
-        this.agendas = <PetServico[]>(json);
-      });
+        .then((json) => {
+          this.agendas = <PetServico[]>(json);
+        });
     }
 
 

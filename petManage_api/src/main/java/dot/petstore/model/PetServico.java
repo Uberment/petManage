@@ -14,6 +14,8 @@ import lombok.NoArgsConstructor;
 public class PetServico {
     private int idPetServico;
     private int idPet;
+    private Pet pet;
+    private Cliente cliente;
     private int idCliente;
     private String dtPedido;
     private String dtExecucao;
