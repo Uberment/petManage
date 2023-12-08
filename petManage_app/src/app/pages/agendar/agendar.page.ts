@@ -136,7 +136,6 @@ export class AgendarPage implements OnInit {
       this.petServico = <PetServico>(json);
       if (this.petServico) {
         this.exibirMensagem('Registro salvo com sucesso!!!');
-        this.navController.navigateBack('/menu');
       } else {
         this.exibirMensagem('Erro ao salvar o registro!')
       }
@@ -201,7 +200,7 @@ export class AgendarPage implements OnInit {
     petServicoOrdem.idPetServico = this.petServico.idPetServico;
     petServicoOrdem.idServico = this.formGroup2.value.idServico;
 
-    this.petServicoOrdemService.salvar(petServicoOrdem).then((json) => {
+    this.petServicoOrdemService.salvar(petServicoOrdem).then(async (json) => {
       petServicoOrdem = <PetServicoOrdem>(json);
       if (petServicoOrdem) {
         this.exibirMensagem('Registro salvo com sucesso!!!');
@@ -216,6 +215,7 @@ export class AgendarPage implements OnInit {
         petServicoOrdem.servico = servico!;
 
         this.formGroup.get('valor')?.setValue(valor + petServicoOrdem.servico.valor);
+        this.salvar();
 
       } else {
         this.exibirMensagem('Erro ao salvar o registro!')

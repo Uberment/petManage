@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defautHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agendar</ion-title>
+  </ion-toolbar>
+</ion-header>  
+
+<ion-content>
+  <form [formGroup]="formGroup" (ngSubmit)="procurar()">
+ 
+    <ion-item>
+      <ion-label position="floating">Data do pedido</ion-label>
+      <br>
+      <ion-datetime formControlName="dtPedido" name="dtPedido" presentation="date"></ion-datetime>
+    </ion-item>
+
+    <ion-button type="submit" expand="block" color="primary" [disabled]="!formGroup.valid">Procurar</ion-button>
+  </form>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let agenda of agendas">
+      <ion-item [routerLink]="['/detalhe-agenda/', agenda.idPetServico]" detail>
+        <ion-label>
+          <h2> <ion-icon name="person"></ion-icon> Cliente {{agenda.cliente.nome}} - Pet: {{agenda.pet.nome}}</h2>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="start">
+        <ion-item-option (click)="excluir(agenda)" color="danger">Excluir</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -95,6 +95,18 @@ const routes: Routes = [
   {
     path: 'recuperar-senha',
     loadChildren: () => import('./pages/recuperar-senha/recuperar-senha.module').then( m => m.RecuperarSenhaPageModule)
+  },
+  {
+    path: 'agenda-data',
+    loadChildren: () => import('./pages/agenda-data/agenda-data.module').then( m => m.AgendaDataPageModule)
+  },
+  {
+    path: 'detalhe-agenda',
+    loadChildren: () => import('./pages/detalhe-agenda/detalhe-agenda.module').then( m => m.DetalheAgendaPageModule)
+  },
+  {
+    path: 'detalhe-agenda/:id',
+    loadChildren: () => import('./pages/detalhe-agenda/detalhe-agenda.module').then( m => m.DetalheAgendaPageModule)
   }
 ];
 

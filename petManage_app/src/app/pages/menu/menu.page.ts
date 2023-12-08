@@ -13,8 +13,9 @@ export class MenuPage implements OnInit {
   public appPages = [
     { title: 'Clientes', url: '/cliente', icon: 'accessibility', color: "primary" },
     { title: 'Meus Dados', url: '/meus-dados', icon: 'id-card', color: "primary" },
-    { title: 'Agendar Visita', url: '/agendar', icon: 'add', color: "primary" },
-    { title: 'Agendas', url: '/agenda', icon: 'library', color: "primary" }
+    { title: 'Agendar Serviço', url: '/agendar', icon: 'add', color: "primary" },
+    { title: 'Agendas', url: '/agenda', icon: 'library', color: "primary" },
+    { title: 'Agendas por data', url: '/agenda-data', icon: 'calendar', color: "primary" }
   ];
 
   public appGerentePages = [

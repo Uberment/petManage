@@ -6,7 +6,7 @@ import { PetServico } from '../model/pet-servico';
   providedIn: 'root'
 })
 export class PetServicoService {
-
+  
   httpHeaders = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
@@ -39,6 +39,11 @@ export class PetServicoService {
 
   async listarEspecifico(executado: number, pago: number) {
     let urlAuxiliar = this.url + "/" + executado + "/" + pago;
+    return await this.httpClient.get(urlAuxiliar).toPromise();
+  }
+
+  async procurarPorData(dtPedido: string) {
+    let urlAuxiliar = this.url + "/data/" + dtPedido;
     return await this.httpClient.get(urlAuxiliar).toPromise();
   }
 }

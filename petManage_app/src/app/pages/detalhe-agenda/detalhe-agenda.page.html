@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defautHref="/agenda-data"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agendar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup">
+    <ion-item>
+      <ion-label position="stacked">Cliente</ion-label>
+      <ion-input type="text" readonly formControlName="nomeCliente"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Telefone do Cliente</ion-label>
+      <ion-input type="text" formControlName="telefoneCliente" readonly mask="(00) 00000-0000"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Pet</ion-label>
+      <ion-input type="text" readonly formControlName="nomePet"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Valor</ion-label>
+      <ion-input type="text" readonly formControlName="valor"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Data do pedido</ion-label>
+      <ion-input type="text" readonly formControlName="dtPedido"></ion-input>
+    </ion-item>
+  </form>
+
+  <br>
+
+  <ion-item>
+    <ion-label>
+      <h1>Serviços</h1>
+    </ion-label>
+  </ion-item>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let petServicoOrdem of petServicoOrdems">
+      <ion-item>
+        <ion-label>
+          <h2>
+            Nome: {{petServicoOrdem.servico.nome}}
+          </h2>
+          <p>
+            Valor: {{petServicoOrdem.servico.valor}}
+          </p>
+        </ion-label>
+      </ion-item>
+
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
